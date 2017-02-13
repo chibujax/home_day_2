@@ -1,6 +1,7 @@
 (function() {
 	'use strict';
 	var word = require("../app/word/library.js");
+	var rstring = require("../app/reversestring/library.js");
 
 
 
@@ -59,6 +60,65 @@
 	    var expectedCounts = { reserved: 1, words : 1, like :1,  prototype: 1, and : 1, toString: 1,  "ok?": 1};
 	    expect(word.words("reserved words like prototype and toString ok?")).toEqual(expectedCounts);
 	  });
+	});
+
+	describe("Produce the reverse order of a word: ", function() {
+	  describe("Case for en empty string", function() {
+
+	    it("should return null for empty string", function() {
+	      expect(rstring.reverseString('')).toEqual(null);
+	    });
+
+	  });
+
+	  describe("Case for palindromes", function() {
+
+	    it("should return true for `anna`", function() {
+	      expect(rstring.reverseString('anna')).toEqual(true);
+	    });
+
+	    it("should return true for `NaN`", function() {
+	      expect(rstring.reverseString('NaN')).toEqual(true);
+	    });
+
+	    it("should return true for `civic`", function() {
+	      expect(rstring.reverseString('civic')).toEqual(true);
+	    });
+
+	  });
+
+	  describe("Case for normal words", function() {
+
+	    it("should return `skoob` for `books`", function() {
+	      expect(rstring.reverseString('books')).toEqual('skoob');
+	    });
+
+	    it("should return `nomolos` for `solomon`", function() {
+	      expect(rstring.reverseString('solomon')).toEqual('nomolos');
+	    });
+
+	    it("should return `csim` for `misc`", function() {
+	      expect(rstring.reverseString('misc')).toEqual('csim');
+	    });
+
+	  });
+
+	  describe("Case for invalid input", function() {
+
+	    it("should return `TypeError` for 1991", function() {
+	      expect(rstring.reverseString(1991)).toEqual('TypeError');
+	    });
+
+	    it("should return 'TypeError' for []", function() {
+	      expect(rstring.reverseString([])).toEqual('TypeError');
+	    });
+
+	    it("should return `TypeError` for ", function() {
+	      expect(rstring.reverseString()).toEqual('TypeError');
+	    });
+
+	  });	  
+
 	});
 
 })();
