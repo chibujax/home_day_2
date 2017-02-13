@@ -1,0 +1,14 @@
+{
+  "name": "andela_19_2",
+  "version": "1.0.0",
+  "description": "Home session 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chibueze uchendu",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  }
+}
