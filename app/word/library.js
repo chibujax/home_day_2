@@ -1,6 +1,6 @@
 module.exports = {
 	words: function (str) { 
-		if (typeof(str) !== "string"){
+		if (typeof(str) !== "string") {
 	    return "TypeError: Only string required";
 	  }   
 	  var new_words = str.replace(/[\r\n\t]+/g," ");
